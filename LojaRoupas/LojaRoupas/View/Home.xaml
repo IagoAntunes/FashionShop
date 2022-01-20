@@ -9,9 +9,7 @@
             <Image Grid.Row="0" Source="Model4.png" Aspect="AspectFill"/>
             <Frame Grid.Row="1" Margin="0,-35,0,25" CornerRadius="30" HasShadow="False" Padding="20">
                 <Grid RowDefinitions="Auto,Auto,*">
-                    <!-- Box mark-->
                     <BoxView Grid.Row="0" WidthRequest="{OnPlatform iOS='100', Android='100'}" BackgroundColor="#EB6276" HorizontalOptions="End" Rotation="-3" Margin="{OnPlatform iOS='0,8,55,0', Android='0,0,55,0'}" VerticalOptions="Start"/>
-                    <!-- Title-->
                     <Label Grid.Row="0" LineHeight="1.5" FontAttributes="Bold" VerticalOptions="Start" HorizontalTextAlignment="Center" 
                            FontSize="{OnPlatform iOS='25', Android='25'}" TextColor="Black">
                         <Label.FormattedText>
@@ -27,7 +25,8 @@
        HorizontalTextAlignment="Center"/>
 
                     <Button Grid.Row="2" BackgroundColor="#EB6276" CornerRadius="33" HeightRequest="66" WidthRequest="66"
-        ImageSource="Flecha" xct:ShadowEffect.Color="#EB6276" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,15"/>
+        ImageSource="Arrow" xct:ShadowEffect.Color="#EB6276" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,15"
+                            Clicked="GoTelaCompras"/>
                 </Grid>
             </Frame>
         </Grid>

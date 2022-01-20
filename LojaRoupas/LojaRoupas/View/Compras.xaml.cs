@@ -1,5 +1,7 @@
-﻿using System;
+﻿using LojaRoupas.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,15 +12,12 @@ using Xamarin.Forms.Xaml;
 namespace LojaRoupas.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Home : ContentPage
+    public partial class Compras : ContentPage
     {
-        public Home()
+        public Compras()
         {
             InitializeComponent();
-        }
-        private void GoTelaCompras(object sender,EventArgs args)
-        {
-            App.Current.MainPage = new View.Compras();
+            BindingContext = new ViewModel.ComprasViewModel();
         }
     }
 }
