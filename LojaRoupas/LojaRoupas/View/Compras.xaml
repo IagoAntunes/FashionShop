@@ -28,6 +28,9 @@
                     <DataTemplate>
                         <StackLayout Padding="2,10,20,30">
                             <Frame Padding="20,10,20,30" WidthRequest="220" HeightRequest="320" VerticalOptions="FillAndExpand" CornerRadius="20" HorizontalOptions="Start" HasShadow="False" xct:ShadowEffect.Color="Silver" xct:ShadowEffect.OffsetY="10">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GoDetalhe" CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
                                 <Grid RowDefinitions="*,Auto,Auto" ColumnDefinitions="*,Auto">
                                     <Frame Grid.ColumnSpan="2" Grid.Row="0" IsClippedToBounds="True" CornerRadius="25" HasShadow="False" Padding="0" xct:ShadowEffect.Color="Silver" xct:ShadowEffect.OffsetY="12">
                                         <Image Source="{Binding Imagem}" Aspect="AspectFill" />

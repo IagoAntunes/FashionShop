@@ -19,5 +19,14 @@ namespace LojaRoupas.View
             InitializeComponent();
             BindingContext = new ViewModel.ComprasViewModel();
         }
+        private void GoDetalhe(object sender,EventArgs args)
+        {
+            Frame frameDetalhe = (Frame)sender;
+            TapGestureRecognizer tapGest = (TapGestureRecognizer)frameDetalhe.GestureRecognizers[0];
+            Roupa roupa = tapGest.CommandParameter as Roupa;
+            //Navigation.PushAsync(new Paginas.Detalhes(vaga));
+
+            App.Current.MainPage = new Detalhes(roupa);
+        }
     }
 }
