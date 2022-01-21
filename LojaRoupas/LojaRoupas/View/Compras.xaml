@@ -7,8 +7,8 @@
         <Grid RowDefinitions="Auto,Auto,Auto,*,Auto,Auto" 
           ColumnDefinitions="*,Auto" VerticalOptions="StartAndExpand" Padding="30,60,30,15">
 
-            <Grid Grid.Row="0" Grid.ColumnSpan="2" RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*">
-                <ImageButton Grid.Column="0" Grid.RowSpan="2" Source="FaceWoman" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start" BackgroundColor="#f1f0f4" CornerRadius="10"/>
+            <Grid Grid.Row="0" Grid.ColumnSpan="2" RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*"> 
+                <ImageButton Grid.Column="0" Grid.RowSpan="2" Source="FaceWoman" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start" BackgroundColor="#f1f0f4" CornerRadius="10" Command="{Binding btnBuscar}"/>
                 <Label Grid.Column="1" Grid.Row="0" Text="Welcome" TextColor="Silver" FontAttributes="Bold" Margin="20,0,0,0"/>
                 <Label Grid.Column="1" Grid.Row="1" Text="Mariona Putri" FontAttributes="Bold" Margin="20,0,0,0"/>
                 <Image Grid.Column="2" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="End" Source="Bell" TranslationX="-10"/>
