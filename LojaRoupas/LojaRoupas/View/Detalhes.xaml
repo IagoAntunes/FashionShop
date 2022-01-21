@@ -3,8 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LojaRoupas.View.Detalhes">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Nome}"/>
-        </StackLayout>
+        <Grid RowDefinitions="*,Auto" RowSpacing="0">
+            <Frame Grid.Row="0" Padding="0" CornerRadius="20" Margin="20" BorderColor="Transparent">
+                    <Image Source="{Binding Imagem}"  Aspect="AspectFill"/>
+            </Frame>
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,Auto" 
+                  Grid.Row="1" Padding="30,0,30,30">
+                <Label Text="Casual T-Shirt" FontSize="25" Grid.Row="0" Grid.Column="0" 
+                       HorizontalTextAlignment="Start" HorizontalOptions="Start" FontAttributes="Bold"/>
+                <Label Text="{Binding Preco}" FontSize="22" Grid.Row="0" Grid.Column="0" 
+                       HorizontalTextAlignment="Start" HorizontalOptions="End" FontAttributes="Bold"/>
+                <Label Text="{Binding Nome}" FontSize="16" Grid.Row="1" Grid.Column="0" 
+                       HorizontalTextAlignment="Start" HorizontalOptions="Start" TextColor="Gray"/>
+                <Label Text="Platform that provides many kinds of the best and most trusted fashion styles. " 
+                       FontSize="16" Grid.Row="2" Grid.Column="0" 
+                       HorizontalTextAlignment="Start" HorizontalOptions="Start" TextColor="LightGray"/>
+                <Label Text="Color" FontSize="20" Grid.Row="3" Grid.Column="0" 
+                       HorizontalTextAlignment="Start" HorizontalOptions="Start" TextColor="LightGray" Margin="0,10,0,10"/>
+                <StackLayout Orientation="Horizontal" Grid.Row="4" Margin="0,5,0,5">
+                    <BoxView CornerRadius="5" Color="LightBlue" Margin="0,0,5,0"/>
+                    <BoxView CornerRadius="5" Color="LightGreen" Margin="5,0,5,0"/>
+                    <BoxView CornerRadius="5" Color="LightPink" Margin="5,0,5,0"/>
+                    <BoxView CornerRadius="5" Color="Orange" Margin="5,0,0,0"/>
+                </StackLayout>
+                <Button Grid.Row="5" BackgroundColor="#EB6276" HorizontalOptions="Center" WidthRequest="280"
+                        CornerRadius="20" Text="Add to Cart" TextColor="White" FontAttributes="Bold"
+                        Margin="20,20,20,0" HeightRequest="60"/>
+
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
