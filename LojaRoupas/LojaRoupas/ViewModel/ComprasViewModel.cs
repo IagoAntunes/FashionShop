@@ -2,41 +2,71 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace LojaRoupas.ViewModel
 {
-    public class ComprasViewModel
+    public class ComprasViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Roupa> ListaRoupas { get; set; }
         public ObservableCollection<RoupaRecomendado> ListaRecomendados { get; set; }
-        public ObservableCollection<Roupa> ListaFiltrada { get; set; }
-        public ObservableCollection<string> ListaNomes;
-        public ComprasViewModel()
+        public ObservableCollection<Roupa> ListaFiltrada { get; set{ListaFiltrada = value; }
+        public string Texto { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public ComprasViewModel(string palavra)
         {
+            this.Texto = palavra;
             ListaRoupas = new ObservableCollection<Roupa>
             {
                 new Roupa{Nome = "Casual T-Shirt" , Preco = "$122.00" , Imagem = "Model1"},
                 new Roupa{Nome = "Casual T-Shirt" , Preco = "$90.99" , Imagem = "Model2"},
                 new Roupa{Nome = "Casual T-Shirt" , Preco = "$130.99" , Imagem = "Model4"}
             };
-
             ListaFiltrada = new ObservableCollection<Roupa>();
-            ListaRecomendados = new ObservableCollection<RoupaRecomendado>
-            {
-                new RoupaRecomendado { Nome="Casual Dress", Descricao="Modern Style", Imagem="Model1" },
-                new RoupaRecomendado { Nome="Casual Dress", Descricao="Modern Style", Imagem="Model4" }
-            };
+            //btnBuscar = new Command((sender) =>
+            //{
+            //    List<Roupa> listaTeste = new List<Roupa>();
+            //    string b = Texto;
+            //    foreach (var item in ListaRoupas)
+            //    {
+            //        if (item.Nome.Contains(((SearchBar)sender).Text))
+            //        {
+            //            listaTeste.Add(item);
+            //        }
+            //    }
+            //    Preencher(listaTeste);
+            //});
         }
 
-        private void PesquisarButton(object sender,EventArgs args)
+        public ICommand btnBuscar => new Command((sender) =>
         {
-            var Resultado = ListaRoupas.Where((b)=>b.Nome.Contains(((SearchBar)sender).Text)).ToList<Roupa>();
+            //string word = ((SearchBar)sender).Text;
+            List<Roupa> listaTeste = new List<Roupa>();
+            foreach (var item in ListaRoupas)
+            {
+                if (item.Nome.Equals(Texto))
+                {
+                    listaTeste.Add(item);
+                    Preencher(listaTeste);
+                    O
+               }
+            }
+           //var Resultado = ListaRoupas.Where((b) => b.Nome.Contains(palavra).ToList<Roupa>();
+
+        });
+
+        public void PesquisarButton1(object sender, EventArgs args)
+        {
+            var Resultado = ListaRoupas.Where((b) => b.Nome.Contains(((SearchBar)sender).Text)).ToList<Roupa>();
             Preencher(Resultado);
         }
-        private void Pesquisar(object sender, TextChangedEventArgs args)
+        public void Pesquisar(object sender, TextChangedEventArgs args)
         {
             var Resultado = ListaRoupas.Where((b) => b.Nome.Contains(((SearchBar)sender).Text)).ToList<Roupa>();
             Preencher(Resultado);

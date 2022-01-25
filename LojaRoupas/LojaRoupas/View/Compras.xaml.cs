@@ -14,10 +14,10 @@ namespace LojaRoupas.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Compras : ContentPage
     {
+        public string palavra { get; set; }
         public Compras()
         {
             InitializeComponent();
-            BindingContext = new ViewModel.ComprasViewModel();
         }
         private void GoDetalhe(object sender,EventArgs args)
         {
@@ -28,5 +28,11 @@ namespace LojaRoupas.View
 
             App.Current.MainPage = new Detalhes(roupa);
         }
+        private void TextoMudou(object sender, EventArgs args)
+        {
+            palavra = ((SearchBar)sender).Text;
+            BindingContext = new ViewModel.ComprasViewModel(palavra);
+        }
+
     }
 }
