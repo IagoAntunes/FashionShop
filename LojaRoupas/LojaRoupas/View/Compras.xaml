@@ -14,13 +14,13 @@
                 <Image Grid.Column="2" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="End" Source="Bell" TranslationX="-10"/>
             </Grid>
 
-            <SearchBar Grid.Column="0" Grid.Row="1" Margin="-5,10,0,10" BackgroundColor="Transparent"/>
+            <SearchBar Grid.Column="0" Grid.Row="1" Margin="-5,10,0,10" BackgroundColor="Transparent" SearchButtonPressed="{Binding PesquisarButton}" TextChanged="{Binding Pesquisar}"/>
             <Button Grid.Column="1" Grid.Row="1" BackgroundColor="#EB6276" CornerRadius="9" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="50" ImageSource="List"/>
             <Label Grid.Column="0" Grid.Row="2" Text="Popular Fashion" TextColor="#858788" FontSize="20" FontAttributes="Bold" />
             <Label Grid.Column="1" Grid.Row="2" Text="View All" HorizontalTextAlignment="End" FontAttributes="Bold" TextColor="Silver" VerticalTextAlignment="Center"/>
 
             <CollectionView Grid.ColumnSpan="2" Grid.Row="3" HorizontalScrollBarVisibility="Never"
-                ItemsSource="{Binding ListaRoupas}"
+                ItemsSource="{Binding ListaFiltrada}"
                 Margin="-20,0,-25,0"
                 ItemsLayout="HorizontalList"
                 HeightRequest="380">
