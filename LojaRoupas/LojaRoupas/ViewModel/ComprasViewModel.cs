@@ -14,7 +14,6 @@ namespace LojaRoupas.ViewModel
     public class ComprasViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Roupa> ListaRoupas { get; set; }
-        public ObservableCollection<RoupaRecomendado> ListaRecomendados { get; set; }
         public ObservableCollection<Roupa> ListaFiltrada { get; set; }
         public string Texto { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -44,24 +43,25 @@ namespace LojaRoupas.ViewModel
             //});
         }
 
-        public ICommand btnBuscar => new Command((sender) =>
+        public ICommand btnBuscar => new Command(() =>
         {
             //string word = ((SearchBar)sender).Text;
-            List<Roupa> listaTeste = new List<Roupa>();
-            int count=0;
-            listaTeste.Clear();
-            foreach (var item in ListaRoupas)
-            {
-                if (item.Nome.Contains(Texto))
-                {
-                    listaTeste.Add(item);
-                    Preencher(listaTeste);
-                    count++;
-               }
-            }
-            if (count <= 0)
-                ListaFiltrada.Clear();
-            count = 0;
+            //List<Roupa> listaTeste = new List<Roupa>();
+            //listaTeste.Clear();
+            var ListaFiltrada2 = ListaRoupas.Where((item)=> item.Nome.Contains(Texto)).ToList();
+            Preencher(ListaFiltrada2);
+            //foreach (var item in ListaRoupas)
+            //{
+            //    if (item.Nome.Contains(Texto))
+            //    {
+            //        listaTeste.Add(item);
+            //        Preencher(listaTeste);
+            //        count++;
+            //   }
+            //}
+            //if (count <= 0)
+            //    ListaFiltrada.Clear();
+            //count = 0;
            //var Resultado = ListaRoupas.Where((b) => b.Nome.Contains(palavra).ToList<Roupa>();
 
         });
