@@ -48,7 +48,7 @@
             <Label Grid.Column="0" Grid.Row="4" Text="Recommended" TextColor="#858788" FontSize="20" FontAttributes="Bold" />
             <Label Grid.Column="1" Grid.Row="4" Text="View All" HorizontalTextAlignment="End" FontAttributes="Bold" TextColor="Silver" VerticalTextAlignment="Center"/>
             <CollectionView Grid.ColumnSpan="2" Grid.Row="5" Margin="-20,20,-25,0" HorizontalScrollBarVisibility="Never"
-                ItemsSource="{Binding ListaRecomendados}"
+                ItemsSource="{Binding ListaRoupas}"
                 ItemsLayout="HorizontalList"
                 HeightRequest="150">
                 <CollectionView.ItemTemplate>

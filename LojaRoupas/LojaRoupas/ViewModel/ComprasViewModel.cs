@@ -15,20 +15,20 @@ namespace LojaRoupas.ViewModel
     {
         public ObservableCollection<Roupa> ListaRoupas { get; set; }
         public ObservableCollection<RoupaRecomendado> ListaRecomendados { get; set; }
-        public ObservableCollection<Roupa> ListaFiltrada { get; set{ListaFiltrada = value; }
+        public ObservableCollection<Roupa> ListaFiltrada { get; set; }
         public string Texto { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ComprasViewModel(string palavra)
+        public ComprasViewModel(string palavra="")
         {
             this.Texto = palavra;
             ListaRoupas = new ObservableCollection<Roupa>
             {
                 new Roupa{Nome = "Casual T-Shirt" , Preco = "$122.00" , Imagem = "Model1"},
-                new Roupa{Nome = "Casual T-Shirt" , Preco = "$90.99" , Imagem = "Model2"},
-                new Roupa{Nome = "Casual T-Shirt" , Preco = "$130.99" , Imagem = "Model4"}
+                new Roupa{Nome = "Basic T-Shirt" , Preco = "$90.99" , Imagem = "Model2"},
+                new Roupa{Nome = "Incredible T-Shirt" , Preco = "$130.99" , Imagem = "Model4"}
             };
-            ListaFiltrada = new ObservableCollection<Roupa>();
+            ListaFiltrada = new ObservableCollection<Roupa>(ListaRoupas);
             //btnBuscar = new Command((sender) =>
             //{
             //    List<Roupa> listaTeste = new List<Roupa>();
@@ -48,15 +48,20 @@ namespace LojaRoupas.ViewModel
         {
             //string word = ((SearchBar)sender).Text;
             List<Roupa> listaTeste = new List<Roupa>();
+            int count=0;
+            listaTeste.Clear();
             foreach (var item in ListaRoupas)
             {
-                if (item.Nome.Equals(Texto))
+                if (item.Nome.Contains(Texto))
                 {
                     listaTeste.Add(item);
                     Preencher(listaTeste);
-                    O
+                    count++;
                }
             }
+            if (count <= 0)
+                ListaFiltrada.Clear();
+            count = 0;
            //var Resultado = ListaRoupas.Where((b) => b.Nome.Contains(palavra).ToList<Roupa>();
 
         });
@@ -74,6 +79,7 @@ namespace LojaRoupas.ViewModel
 
         private void Preencher(List<Roupa> resultado)
         {
+            ListaFiltrada.Clear();
             foreach (var emp in resultado)
             {
                 ListaFiltrada.Add(emp);

@@ -18,6 +18,7 @@ namespace LojaRoupas.View
         public Compras()
         {
             InitializeComponent();
+            BindingContext = new ViewModel.ComprasViewModel();
         }
         private void GoDetalhe(object sender,EventArgs args)
         {
